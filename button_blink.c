@@ -128,14 +128,26 @@ void main(void)
 
     while (1)
     {
+        //IF the switch is not pressed
         if (PORTEbits.RE2 == 1)
         {
-            PORTEbits.RE0 = 0;
+            //IF the LED is HIGH
+            if (PORTEbits.RE0 == 1)
+            {
+                //SET LED LOW
+                PORTEbits.RE0 = 0;
+            }
+            else
+            {
+                //SET LED HIGH
+                PORTEbits.RE0 = 1;
+            }
+            __delay_ms(250);
         }
         else
         {
+            //SET LED LOW
             PORTEbits.RE0 = 1;
         }
-        //__delay_ms(1000);
     }
 }
