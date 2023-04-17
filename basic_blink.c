@@ -19,7 +19,14 @@ void main(void)
 
     while (1)
     {
-        PORTEbits.RE0 ^= 1;
-        __delay_ms(1000);
+        if (PORTEbits.RE0 == 1)
+        {
+            PORTEbits.RE0 = 0;
+        }
+        else
+        {
+            PORTEbits.RE0 = 1;
+        }
+        __delay_ms(2000);
     }
 }
